@@ -148,13 +148,10 @@
 <div class="card mt-5">
     <h5 class="card-header">Calendar</h5>
     <div class="card-body">
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-        <script src="'//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css">
+        <form method="GET" action="/calendar">
 
-        {!! $calendar->calendar() !!}
-        {!! $calendar->script() !!}
+            <Button  value="1" type="submit">Calendar</Button>
+        </form>
 
     </div>
 </div>

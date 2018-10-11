@@ -24,7 +24,7 @@ class CalendarController extends Controller
 
             ]);
 
-        return view('profile')
+        return view('calendar')
             ->with($calendar);
 
 

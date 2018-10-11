@@ -24,3 +24,4 @@ Route::get('/filter','SearchController@typeFilter');
 Route::get('/sort','SearchController@sortInLocaation');
 
 Route::get('/details','profileController@viewData');
+Route::get('/calendar','calendarController@dashboard');
