@@ -1,0 +1,23 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+#topimg {
+  position:relative;
+  width:100%;
+  height:500px;   /* Height of the footer */
+  background:#6cf;
+}
+
+#cardimg{
+  position:relative;
+
+  height:150px;
+
+}
