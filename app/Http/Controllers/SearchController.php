@@ -32,17 +32,32 @@ class SearchController extends Controller
 
     public function typeFilter(Request $request){
 
-            $type= $request->query('type');
+
+            $type1= $request->query('type1');
+             $type2= $request->query('type2');
+            $type3= $request->query('type3');
+            $type4= $request->query('type4');
+
+            print_r($type1);
+        print_r($type2);
+        print_r($type3);
+        print_r($type4);
+
+
             $location = $request->query('location');
 
             $freelancers=DB::table('users')
-                ->where('skills.skill_id','like','%'.$type.'%')
                 ->where('users.location','like','%'.$location.'%')
+                ->where('skills.skill_id','like','%'.$type1.'%')
+                ->where('skills.skill_id','like','%'.$type2.'%')
+                ->where('skills.skill_id','like','%'.$type3.'%')
+                ->where('skills.skill_id','like','%'.$type4.'%')
                 ->join('skills','skills.s_id','=','sid')
+                ->join('skillset','skillset.Id','=','skills.skill_id')
                 ->get();
 
             return view('result')->with('freelancers',$freelancers);
-        
+
 
 //
 

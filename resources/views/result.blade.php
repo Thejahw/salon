@@ -51,19 +51,19 @@
                         <form action="/filter" method="GET"  >
                             <label>Type</label>
                             <div class="check-box">
-                                <input type="checkbox" name="type[]" value="1"/>
+                                <input type="checkbox" name="type1" value="1"/>
                                 <label>Natural Hairstylist:</label>
                             </div>
                             <div class="check-box">
-                                <input type="checkbox" name="type[]" value="2"/>
+                                <input type="checkbox" name="type2" value="2"/>
                                 <label>Colorist:</label>
                             </div>
                             <div class="check-box">
-                                <input type="checkbox" name="type[]" value="3"/>
+                                <input type="checkbox" name="type3" value="3"/>
                                 <label>Extention expert:</label>
                             </div>
                             <div class="check-box">
-                                <input type="checkbox" name="type[]" value="4"/>
+                                <input type="checkbox" name="type4" value="4"/>
                                 <label>Wigmaker:</label>
                             </div>
 
@@ -103,39 +103,43 @@
 
     {{--<script src="/js/app.js"></script>--}}
     <div style="margin: 20px">
-        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}}'</h2>
+
+        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}}' </h2>
+
+        <div class="row">
+            @foreach($freelancers as $freelancer)
+                <h2></h2>
+
+                        <div >
+                        <div class="card " style="width: 18rem; margin: 20px">
+                            <img class="card-img-top mt-5" src="{{$freelancer->profile_pic}}" alt="Card image cap" style="height: 18rem; width: 18rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$freelancer->first_name}} {{$freelancer->last_name}} </h5>
+                                <p class="card-text"> <h6>Address:</h6>
+                                                    {{$freelancer->home_no}}<br/>
+                                                    {{$freelancer->street_address}}<br/>
+                                                    {{$freelancer->city}}</p>
+                                <p class="card-text"> <h6>Education:</h6>
+                                                    {{$freelancer->education}}</p>
+                                <p class="card-text"> <h6>Ratings:</h6>
+                                                     {{$freelancer->total_rate}}</p>
+                                <p class="card-text"> <h6>Rate:</h6>
+                                ${{$freelancer->phase_rate}}/hour</p>
+                                <form action="/details"  method="GET" >
+                                    <meta name="csrf-token" content="{{ csrf_token() }}" />
+                                    <button class="btn btn-success" type="submit" name="id" value=" {{$freelancer->sid}}" >View Profile </button>
+                                </form>
 
 
-        @foreach($freelancers as $freelancer)
-            <div class="row">
-                    <div class="column">
-                    <div class="card " style="width: 18rem; margin: 20px">
-                        <img class="card-img-top mt-5" src="{{$freelancer->profile_pic}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">{{$freelancer->first_name}} {{$freelancer->last_name}} </h5>
-                            <p class="card-text"> <h6>Address:</h6>
-                                                {{$freelancer->home_no}}<br/>
-                                                {{$freelancer->street_address}}<br/>
-                                                {{$freelancer->city}}</p>
-                            <p class="card-text"> <h6>Education:</h6>
-                                                {{$freelancer->education}}</p>
-                            <p class="card-text"> <h6>Ratings:</h6>
-                                                 {{$freelancer->total_rate}}</p>
-                            <p class="card-text"> <h6>Rate:</h6>
-                            ${{$freelancer->phase_rate}}/hour</p>
-                            <form action="/details"  method="GET" >
-                                <meta name="csrf-token" content="{{ csrf_token() }}" />
-                                <button class="btn btn-success" type="submit" name="id" value=" {{$freelancer->sid}}" >View Profile </button>
-                            </form>
-
-
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
 
-        @endforeach
+
+            @endforeach
+        </div>
+
 
 
     </div>

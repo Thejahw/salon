@@ -21,6 +21,7 @@ class CreateSkillsTable extends Migration
 
            
             $table->foreign('s_id')->references('sid')->on('users');
+            $table->foreign('skill_id')->references('Id')->on('skillset');
            
         });
     }

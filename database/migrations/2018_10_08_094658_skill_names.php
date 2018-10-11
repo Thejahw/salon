@@ -13,14 +13,14 @@ class SkillNames extends Migration
      */
     public function up()
     {
-        Schema::create('skills', function (Blueprint $table) {
+        Schema::create('skillset', function (Blueprint $table) {
         $table->increments('Id')->autoIncrement();
 
         $table->string('skill_name');
 
 
 
-        $table->foreign('Id')->references('skill_id')->on('skills');
+
 
     });
     }
