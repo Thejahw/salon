@@ -191,6 +191,24 @@
 
 </script>
 
+<div class="card mt-5">
+    <h5 class="card-header">Calendar</h5>
+    <div class="card-body">
+        <div class="row">
+            @foreach($profile as $image)
+            <div class="column">
+
+                <img src="{{$image->galery_image}}" alt="Nature" onclick="openImg(this);">
+            </div>
+            @endforeach
+
+        </div>
+
+
+    </div>
+</div>
+
+
 
 
 
