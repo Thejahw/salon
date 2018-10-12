@@ -3,32 +3,58 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\reservation;
 
 class CalendarController extends Controller
 {
-    public function dashboard(){
-        $events=[];
+    public function availability(Request $request){
+$notification=[];
+        $date= $request->query('date');
+        $phase= $request->query('phase');
+        $sid= $request->query('sid');
+        print_r($date);
+        $validatedData = $request->validate([
+            'date' => 'required',
+            'phase' => 'required',
+        ]);
 
-        $events[]=\Calendar::event(
-            "Saloon one", //title
-            "true",
-            '2018-10-02T0900',//fullday
-            '2018-10-04T0900',
-            "1" //Id
-        );
+        $unavailables=DB::table('reservations')
+            ->where('reservations.sId','like','%'. $sid.'%')
+            ->where('reservations.saloonId','like','%'. $date.'%')
+            ->get();
+        print_r($unavailables);
 
-        $calendar=\Calendar::addEvents($events)
-            ->setoptions([
+        if($unavailables->isEmpty()) {
+            $notification=array(
+                'message'=>'Stylist is available',
+                'alert-type'=>'success');
 
-            ])->setcallbacks([
+        }
+        else{
+            $notification=array(
+                'message'=>'Stylist is unavailable',
+                'alert-type'=>'warning');
 
-            ]);
-
-        return view('calendar')
-            ->with($calendar);
+        }
 
 
 
+        return back()->with($notification);
 
+
+
+
+
+
+
+    }
+
+    public function messages()
+    {
+        return [
+            'date.required' => 'not available',
+            'phase.required'  => 'A message is required',
+        ];
     }
 }

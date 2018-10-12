@@ -18,10 +18,11 @@ export default class Description extends Component {
                 <div id="topimg">
 
                     <div className="card bg-dark text-black-100">
-                        <img className="card-img" src="/images/logo.jpg" alt="Card image"/>
-                        <div className="card-img-overlay">
-                            <h1 className="card-title">Your best opportunity</h1>
+                        <img className="card-img" id="top-img" src="https://www.stylecraze.com/wp-content/uploads/2012/12/Techniques-To-Get-Chic-Wavy-Hair.jpg" alt="Card image"/>
+                        <div className="card-img-overlay text-white">
+                            <h1 className="card-title">Grab your opportunity </h1>
                             <p  className="card-text">Find out the best option for you in evolutional  Styling world</p>
+
                             <p className="card-text"></p>
                         </div>
                     </div>
@@ -31,7 +32,7 @@ export default class Description extends Component {
 
                 <div className="card text-center">
                     <div className="card-body">
-                        <h5 className="jumbotron font-weight-bold">Become a freelancing hair stylist at Styly</h5>
+                        <h5 className="jumbotron font-weight-bold bg-dark text-white">Become a freelancing hair stylist at Styly</h5>
                         <ul>
                             <ul>
                                 <img id="cardimg" src="http://amydarr.com/wp-content/uploads/2015/06/sarasota-hair-stylist.png" alt="Card image"/>
@@ -50,21 +51,21 @@ export default class Description extends Component {
 
                 <div className="card text-center ">
                     <div className="card-body">
-                        <h5 className="jumbotron font-weight-bold">Hire the best stylist for your job
+                        <h5 className="jumbotron font-weight-bold text-white bg-dark">Hire the best stylist for your job
 
                         </h5>
                         <img id="cardimg" src="https://lovelace-media.imgix.net/getty/521055924.jpg" alt="Card image"/>
                         <h3 className="card-text  text-center ">There is no employing class, no working class, no farming class. You may pigeonhole a man or woman as a farmer
                             or a worker or a professional man or an employer or even a banker. But the son of the farmer will be a doctor
                             or a worker or even a banker, and his daughter a teacher. The son of a worker will be an employer - or maybe president.
-                            </h3>
+                        </h3>
 
                     </div>
                 </div>
 
-                <div className="card text-center font-weight-bold">
+                <div className="card text-center font-weight-bold ">
                     <div className="card-body">
-                        <h5 className="jumbotron">Make money easily
+                        <h5 className="jumbotron font-weight-bold text-white bg-dark">Make money
 
                         </h5>
                         <img id="cardimg" src="http://1.bp.blogspot.com/-R8WR2BKxteE/U2D4wBquGbI/AAAAAAAAAUI/1K5fsIU9g9g/s1600/earn+money+daily.JPG" alt="Card image"/>

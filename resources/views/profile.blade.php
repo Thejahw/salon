@@ -14,8 +14,9 @@
           crossorigin="anonymous">
     <!-- Fonts -->
     {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <div id='search'>
@@ -65,7 +66,7 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-secondary btn-lg bg-success" >Resrve now</button>
+<button type="button" class="btn btn-secondary btn-lg bg-success" formaction="/reserve" value="{{$profile[0]->sid}}" name="reserveStylist" formmethod="GET">Resrve now</button>
 <div class="row ">
     <div class="col-md-3 mb-md-0 mb-3">
         <div class="card mt-5" style="width: 18rem;">
@@ -87,6 +88,31 @@
 
 
             </ul>
+        </div>
+    </div>
+
+    <div class="raw">
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Check Availability</h5>
+                <form action="/availability" >
+                    <label >date</label>
+                    <input type="text" name="date"/>
+                    <label >Time phase</label>
+                    <input type="text" name="phase">
+                    {{--@foreach($unavailables as $unavailable)--}}
+                    {{--@if(!($unavailable->isEmpty()))--}}
+                        {{--<h2 class="text-danger">Stylist is unavailable</h2>--}}
+                    {{--@else--}}
+                        {{--<h2>Stylist is Available</h2>--}}
+
+                    {{--@endif--}}
+                    {{--@endforeach--}}
+
+                    <Button type="submit"  value="{{$profile[0]->sid}}" name="sid">Check</Button>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -145,19 +171,25 @@
     </div>
 </div>
 
-<div class="card mt-5">
-    <h5 class="card-header">Calendar</h5>
-    <div class="card-body">
-        <form method="GET" action="/calendar">
-
-            <Button  value="1" type="submit">Calendar</Button>
-        </form>
-
-    </div>
-</div>
 
 
+<script>
+    @if(Session::has('message'))
+       var type="{{Session::get('alert-type','info')}}"
 
+    switch (type) {
+        case 'success':
+            toastr.info("{{Session::get('message')}}");
+
+         break;
+        case 'warning':
+            toastr.info("{{Session::get('message')}}");
+            break;
+    }
+
+    @endif
+
+</script>
 
 
 

@@ -72,9 +72,32 @@
                             <select id="ddlViewBy" name="location" >
 
                                 <option value="califonia" selected="selected" name="1">Califonia</option>
-                                <option value="florida" name="2">Florida</option>
-                                <option value="washington" name="3" >washington</option>
-                                <option value="moscow" name="4">Moscow</option>
+
+                                <option value="florida" >florida</option>
+                                <option  value="Florence"  >Florence</option>
+                                <option value="Huntsville" >Huntsville</option>
+                                <option value="Decatur" > Decatur</option>
+                                <option value="Birmingham" >Birmingham</option>
+                                <option value="Anniston">Anniston</option>
+                                <option value="Phoenix">Phoenix</option>
+                                <option value="Oakland">Oakland</option>
+                                <option value="Sanfransisco">Sanfransisco</option>
+                                <option value="San Jose">San Jose</option>
+                                <option value="Albany">Albany</option>
+                                <option value="Chicago">Chicago</option>
+                                <option value="Urbana">Urbana</option>
+                                <option value="Sioux City">Sioux City</option>
+                                <option value="New Orleans">	New Orleans</option>
+                                <option value="Davenport"> Davenport</option>
+                                <option value="Pikeville">Pikeville</option>
+                                <option value="Portland">Portland</option>
+                                <option value="Boston">Boston</option>
+                                <option value="Concord">Concord</option>
+                                <option value="Las Vegas">Las Vegas</option>
+                                <option value="New York City">New York City</option>
+                                <option value="Tulsa">Tulsa</option>
+                                <option value=" St.George"> St.George</option>
+                                <option value="Madison">Madison</option>
                             </select>
                             <button class="btn btn-primary bg-primary" style="height: 25px; width:50px; margin: 5px" type="submit">Search</button>
 
@@ -104,7 +127,7 @@
     {{--<script src="/js/app.js"></script>--}}
     <div style="margin: 20px">
 
-        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}}' </h2>
+        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}}' '{{request()->input('name')}}' </h2>
 
         <div class="row">
             @foreach($freelancers as $freelancer)

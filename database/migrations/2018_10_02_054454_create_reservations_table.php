@@ -17,7 +17,8 @@ class CreateReservationsTable extends Migration
             $table->increments('resrveId')->autoIncrement();
             $table->unsignedInteger('sId');
             $table->boolean('phase');//morning or evening
-            $table->integer('saloonId'); //not forignkey because not implementing the saloon model
+            $table->integer('saloonId');//not forignkey because not implementing the saloon model
+            $table->date('date');
 
             $table->foreign('sId')->references('sid')->on('users');
 

@@ -19,8 +19,10 @@
 
     </head>
     <body>
+
+
     <div id='app'>
-        {{--<script src="assets/js/app.js"></script>--}}
+
     </div>
 
     <script src="js/app.js"></script>

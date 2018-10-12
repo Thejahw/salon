@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('state');
             $table->string('password');
-
+            $table->string('education');
             $table->text('Experiance');
             $table->integer('calender_id');
             $table->integer('resrve_id');
