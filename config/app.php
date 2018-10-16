@@ -164,7 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
-        Laralabs\Toaster\ToasterServiceProvider::class,
+
 
 
         /*

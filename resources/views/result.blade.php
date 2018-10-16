@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
-    <!-- Fonts -->
-    {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.2.1/css/bootstrap-slider.min.css" rel="stylesheet">
 
 </head>
+
+
+
 <body>
 <div>
 
@@ -59,7 +60,7 @@
                                 <label>Colorist:</label>
                             </div>
                             <div class="check-box">
-                                <input type="checkbox" name="type3" value="3"/>
+                                <input type="checkbox" name="type3" value="3" />
                                 <label>Extention expert:</label>
                             </div>
                             <div class="check-box">
@@ -99,7 +100,14 @@
                                 <option value=" St.George"> St.George</option>
                                 <option value="Madison">Madison</option>
                             </select>
+                            <label>Hourly rate Range</label><br/>
+                            <label>Min $</label>
+                            <input type="text" name="min_rate" value="0" placeholder="0">
+                            <label>Max $</label>
+                            <input type="integer" name="max_rate" value="1000" placeholder="1000">
+
                             <button class="btn btn-primary bg-primary" style="height: 25px; width:50px; margin: 5px" type="submit">Search</button>
+
 
                         </form>
 
@@ -115,19 +123,10 @@
 
         </div>
 
-    {{--<body>--}}
 
-    {{--<div id='page2'>--}}
-        {{--<script src="assets/js/app.js"></script>--}}
-    {{--</div>--}}
-
-
-
-
-    {{--<script src="/js/app.js"></script>--}}
     <div style="margin: 20px">
 
-        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}}' '{{request()->input('name')}}' </h2>
+        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}} {{request()->input('name')}} {{request()->input('type')}}' </h2>
 
         <div class="row">
             @foreach($freelancers as $freelancer)

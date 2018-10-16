@@ -11,75 +11,49 @@ use Illuminate\Support\Facades\DB;
 class SearchController extends Controller
 {
 
-    public function search(Request $request){
-        $location = $request->query('location');
-        $name = $request->query('name');
+    public function search(Request $request)
+    {
 
-        $freelancers = User::where('location','like','%'.$location.'%')
-            ->where('first_name','like','%'.$name.'%')
-            ->get( );
-
-//        return view('result')
-//     ->with(response()->json($freelancers));
-
+        $freelancers = User::where('location', 'like', '%' . $request->query('location') . '%')
+            ->where('first_name', 'like', '%' . $request->query('name'). '%')
+            ->get();
 
         return view('result')
-            ->with('freelancers',$freelancers);
+            ->with('freelancers', $freelancers);
     }
 
-    public function view(Request $request){
+
+    public function typeFilter(Request $request)
+    {
 
 
-        return view('profile');
-
-    }
-
-    public function typeFilter(Request $request){
-
-
-            $type1= $request->query('type1');
-             $type2= $request->query('type2');
-            $type3= $request->query('type3');
-            $type4= $request->query('type4');
-        print_r($type1);
-        print_r($type2);
-        print_r($type3);
-        print_r($type4);
-
-
-            $location = $request->query('location');
-
-            $freelancers=DB::table('users')
-                ->join('skills','skills.s_id','=','sid')
-                ->join('skillset','skillset.Id','=','skills.skill_id')
-                ->where('users.location','like','%'.$location.'%')
-                ->where('skills.skill_id','like','%'.$type1.'%')
-                ->where('skills.skill_id','like','%'.$type2.'%')
-                ->where('skills.skill_id','like','%'.$type3.'%')
-                ->where('skills.skill_id','like','%'.$type4.'%')
-                ->distinct()
-                ->get(['sid','first_name','last_name','description','profile_pic','total_rate','phase_rate','location','home_no','street_address','city','state','education',]);
-
-            return view('result')->with('freelancers',$freelancers);
-
-
-//
-
-    }
-
-    public function sortInLocaation(Request $request){
-        $type= $request->query('type');
-        print_r($type);
-//        $location = $request->query('location');
-
-        $freelancers=DB::table('users')
-            ->join('skills','skills.s_id','=','sid')
-            ->select(distinct('sid'))
-            ->where('skills.skill_id','like','%'.$type.'%')
+        $freelancers = DB::table('users')
+            ->select('sid', 'first_name', 'last_name', 'description', 'profile_pic', 'total_rate', 'phase_rate',
+                'location', 'home_no', 'street_address', 'city', 'state', 'education'
+            )
+            ->join('skills', 'skills.s_id', '=', 'sid')
+            ->where('users.location', 'like', '%' . $request->query('location') . '%')
+            ->where('users.phase_rate', '>=', $request->query('min_rate'))
+            ->where('users.phase_rate', '<=', $request->query('max_rate'))
+            ->when(!empty($request->query('type1')),function ($q1) use ($request) {
+                $q1->where('skills.skill_id', 'like', '%' . $request->query('type1') . '%');
+            })
+            ->when(!empty($request->query('type2')),function ($q2) use ($request) {
+                $q2->where('skills.skill_id', 'like', '%' . $request->query('type2') . '%');
+            })
+            ->when(!empty($request->query('type3')),function ($q3) use ($request) {
+                $q3->where('skills.skill_id', 'like', '%' . $request->query('type3') . '%');
+            })
+            ->when(!empty($request->query('type4')),function ($q4) use ($request) {
+                $q4->where('skills.skill_id', 'like', '%' . $request->query('type4') . '%');
+            })
             ->distinct()
             ->get();
-        print_r($freelancers);
-        return view('result')->with('freelancers',$freelancers);
+
+
+        return view('result')->with('freelancers', $freelancers);
 
     }
+
+
 }

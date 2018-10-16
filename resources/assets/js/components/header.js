@@ -28,7 +28,7 @@ export default class Header extends Component {
                         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                                 <select id="home-dropdown" name="location" defaultValue="Location">
-
+                                    <option  value="">--None--</option>
                                     <option  value="califonia">califonia</option>
                                     <option value="florida" >florida</option>
                                     <option  value="Florence"  >Florence</option>

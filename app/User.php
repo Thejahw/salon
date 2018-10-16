@@ -16,23 +16,32 @@ class User extends Model
      * @var array
      */
     protected $table = 'users';
+    public $timestamps = false;
     protected $fillable = [
-        'fName', 
-        'email', 
-        'password',
-        'lName',
+        'first_name',
+        'last_name',
         'description',
-        'startTime',
-        'endTime',
-        'profilePic',
+        'email',
+        'profile_pic',
         'gender',
+        'profilePic',
+        'phase_rate',
         'contact',
         'totalRate',
         'hRate',
         'location',
+        'home_no',
+        'street_address',
+        'city',
+        'state',
         'password',
-        
+        'education',
+        'Experiance',
+        'calender_id',
+        'resrve_id',
     ];
+
+
 
     /**
      * The attributes that should be hidden for arrays.

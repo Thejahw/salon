@@ -17,11 +17,10 @@ Route::get('/', function () {
 });
 
 Route::get('/search','SearchController@search');
-Route::get('/profile', 'SearchController@view')->name('view');
 
 Route::get('/filter','SearchController@typeFilter');
 
-Route::get('/sort','SearchController@sortInLocaation');
-
 Route::get('/details','profileController@viewData');
-Route::get('/availability','calendarController@availability');
+
+Route::get('/availability','profileController@checkAvailability');
+
