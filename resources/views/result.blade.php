@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -123,10 +124,9 @@
 
         </div>
 
-
     <div style="margin: 20px">
 
-        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}} {{request()->input('name')}} {{request()->input('type')}}' </h2>
+        <h2 class="mt-5">reslt(s) for '{{request()->input('location')}} {{request()->input('fname')}} {{request()->input('lname')}} {{request()->input('min_rate')}} - {{request()->input('max_rate')}}' </h2>
 
         <div class="row">
             @foreach($freelancers as $freelancer)
@@ -134,7 +134,7 @@
 
                         <div >
                         <div class="card " style="width: 18rem; margin: 20px">
-                            <img class="card-img-top mt-5" src="{{$freelancer->profile_pic}}" alt="Card image cap" style="height: 18rem; width: 18rem">
+                            <img class="card-img-top mt-5" src="{{$freelancer->profile_pic}}" alt="Card image cap" style="height: 100%; width: 100%">
                             <div class="card-body">
                                 <h5 class="card-title">{{$freelancer->first_name}} {{$freelancer->last_name}} </h5>
                                 <p class="card-text"> <h6>Address:</h6>

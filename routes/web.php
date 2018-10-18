@@ -24,3 +24,4 @@ Route::get('/details','profileController@viewData');
 
 Route::get('/availability','profileController@checkAvailability');
 
+

@@ -30,8 +30,8 @@ export default class Description extends Component {
                 </div>
 
 
-                <div className="card text-center">
-                    <div className="card-body">
+                <div className="card text-center w-75 mx-auto" >
+                    <div className="card-body ">
                         <h5 className="jumbotron font-weight-bold bg-dark text-white">Become a freelancing hair stylist at Styly</h5>
                         <ul>
                             <ul>
@@ -49,7 +49,7 @@ export default class Description extends Component {
                     </div>
                 </div>
 
-                <div className="card text-center ">
+                <div className="card text-center w-75 mx-auto">
                     <div className="card-body">
                         <h5 className="jumbotron font-weight-bold text-white bg-dark">Hire the best stylist for your job
 
@@ -63,7 +63,7 @@ export default class Description extends Component {
                     </div>
                 </div>
 
-                <div className="card text-center font-weight-bold ">
+                <div className="card text-center font-weight-bold w-75 mx-auto">
                     <div className="card-body">
                         <h5 className="jumbotron font-weight-bold text-white bg-dark">Make money
 

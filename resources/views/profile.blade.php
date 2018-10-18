@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 <script>
      @if(Session::has('message'))
@@ -61,6 +62,7 @@
 </div>
 
 
+
 <div>
     <div class="col-md-3 mb-md-0 mb-3">
         <div class="card mx-auto mt-5" style="width: 18rem; ">
@@ -82,11 +84,11 @@
     <div class="row ">
         <div class="col-md-3 mb-md-0 mb-3">
             <div class="card mt-5" style="width: 18rem;">
-                <div class="card-header">
+                <div class="card-header bg-dark text-white">
                     Contact details
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><h2>Address:</h2> <br/>
+                    <li class="list-group-item "><h2>Address:</h2> <br/>
                         <p>
                             {{$profile[0]->home_no}}<br/> {{$profile[0]->street_address}}<br/>{{$profile[0]->city}}
                             <br/>{{$profile[0]->state}}
@@ -110,21 +112,12 @@
 
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">Check Availability</h5>
+                    <h5 class="card-title bg-dark text-white">Check Availability</h5>
                     <form action="/availability">
                         <label>date</label>
                         <input type="text" name="date"/>
                         <label>Time phase</label>
                         <input type="text" name="phase">
-                        {{--@foreach($unavailables as $unavailable)--}}
-                        {{--@if(!($unavailable->isEmpty()))--}}
-                        {{--<h2 class="text-danger">Stylist is unavailable</h2>--}}
-                        {{--@else--}}
-                        {{--<h2>Stylist is Available</h2>--}}
-
-                        {{--@endif--}}
-                        {{--@endforeach--}}
-
                         <Button type="submit" value="{{$profile[0]->sid}}" name="sid">Check</Button>
                     </form>
                 </div>
@@ -136,8 +129,8 @@
 </div>
 
 
-<div class="card mt-5">
-    <h5 class="card-header mt-5">Experiance</h5>
+<div class="card mt-5 w-75 mx-auto">
+    <h5 class="card-header mt-5 bg-dark text-white">Experiance</h5>
     <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
         <p class="card-text">{{$profile[0]->Experiance}}</p>
@@ -145,16 +138,16 @@
     </div>
 </div>
 
-<div class="card mt-5">
-    <h5 class="card-header">Educational</h5>
+<div class="card mt-5 w-75 mx-auto">
+    <h5 class="card-header bg-dark text-white">Educational</h5>
     <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
         <p class="card-text">{{$profile[0]->education}}</p>
 
     </div>
 </div>
-<div class="card mt-5">
-    <h5 class="card-header">Skills</h5>
+<div class="card mt-5 w-75 mx-auto">
+    <h5 class="card-header bg-dark text-white">Skills</h5>
     <div class="card-body">
         <h5 class="card-title">Skill set</h5>
         @foreach($profile_skill as $skill)
@@ -185,8 +178,8 @@
 </div>
 
 
-<div class="card mt-5">
-    <h5 class="card-header">Images</h5>
+<div class="card mt-5 w-75 mx-auto">
+    <h5 class="card-header bg-dark text-white">Images</h5>
     <div class="card-body">
         <div class="row">
             @foreach($profile as $image)

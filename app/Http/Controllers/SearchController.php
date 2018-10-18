@@ -11,18 +11,20 @@ use Illuminate\Support\Facades\DB;
 class SearchController extends Controller
 {
 
+    //search for the welcome page(by name and the location)
     public function search(Request $request)
     {
 
         $freelancers = User::where('location', 'like', '%' . $request->query('location') . '%')
-            ->where('first_name', 'like', '%' . $request->query('name'). '%')
+            ->where('first_name', 'like', '%' . $request->query('fname'). '%')
+            ->where('last_name', 'like', '%' . $request->query('lname'). '%')
             ->get();
 
         return view('result')
             ->with('freelancers', $freelancers);
     }
 
-
+//secondary serch by the skill, location, rate
     public function typeFilter(Request $request)
     {
 
@@ -51,7 +53,7 @@ class SearchController extends Controller
             ->get();
 
 
-        return view('result')->with('freelancers', $freelancers);
+        return view('result')->with('freelancers', $freelancers);//return to the result page
 
     }
 

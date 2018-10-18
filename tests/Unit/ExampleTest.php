@@ -27,24 +27,13 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-
-
-    public function test_filter_route(){
-        $response = $this->get('/filter');
-        $response->assertStatus(200);
-    }
-
-//    public function test_sort_route(){
-//        $response = $this->get('/sort');
-//        $response->assertStatus(200);
-//    }
-
     public function test_details_route(){
         $response = $this->get('/details');
         $response->assertStatus(200);
     }
-//    public function test_availability_route(){
-//        $response = $this->get('/availability');
-//        $response->assertStatus(200);
-//    }
+
+    public function test_form_secondrySearch(){
+        
+    }
+
 }

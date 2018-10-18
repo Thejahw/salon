@@ -63,7 +63,10 @@ export default class Header extends Component {
 
 
                         <div id="search-row">
-                            <input type="text" className="form-control mr-sm-2" name="name" placeholder="First name"/>
+                            <input type="text" className="form-control mr-sm-2" name="fname" placeholder="First name"/>
+                        </div>
+                        <div id="search-row">
+                            <input type="text" className="form-control mr-sm-2" name="lname" placeholder="Last name"/>
                         </div>
                         <div id="search-row">
                             <button className="btn btn-outline-light my-2 my-sm-0 raw" type="submit">Search</button>

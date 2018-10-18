@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class profileController extends Controller
 {
 
+    // send the details of a specific person(freelancer) to his profile view
     public function viewData(Request $request){
 
         $profile = DB::table('users')// with images
